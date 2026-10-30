@@ -1,0 +1,518 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Marine &amp; Thread Beldi Corp. — Yacht Crew Uniforms</title>
+<style>
+:root {
+  color-scheme: light;
+  --bg: #f3f7fb;
+  --bg-elevated: #ffffff;
+  --surface: #ffffff;
+  --surface-soft: #eaf2fa;
+  --border: #d9e4f0;
+  --border-strong: #a9c0d8;
+  --text: #0e2235;
+  --text-muted: #4a6079;
+  --text-soft: #6b7f94;
+  --accent: #0b5ea8;
+  --accent-hover: #084a86;
+  --accent-soft: rgba(11, 94, 168, 0.08);
+  --accent-fg: #ffffff;
+  --navy: #0c2b4a;
+  --navy-deep: #081d33;
+  --shadow: 0 18px 48px rgba(10, 40, 70, 0.14);
+  --panel-strong: rgba(255, 255, 255, 0.96);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: "Segoe UI", Aptos, Calibri, -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.6;
+}
+a { color: inherit; text-decoration: none; }
+img, svg { display: block; }
+
+/* ---------- Header ---------- */
+header {
+  position: sticky; top: 0; z-index: 50;
+  background: var(--panel-strong);
+  backdrop-filter: blur(10px);
+  border-bottom: 1px solid var(--border);
+}
+.nav {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 16px 32px;
+}
+.brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 1.25rem; letter-spacing: 0.02em; }
+.brand-mark {
+  width: 36px; height: 36px; border-radius: 0.625rem;
+  background: var(--accent); color: var(--accent-fg);
+  display: flex; align-items: center; justify-content: center; font-size: 1rem; font-weight: 800;
+}
+.nav-links { display: flex; gap: 28px; align-items: center; }
+.nav-links a { color: var(--text-muted); font-size: 0.95rem; transition: color 0.15s; }
+.nav-links a:hover { color: var(--accent); }
+.btn {
+  display: inline-flex; align-items: center; justify-content: center;
+  padding: 10px 22px; border-radius: 0.625rem;
+  background: var(--accent); color: var(--accent-fg);
+  font-weight: 600; font-size: 0.9rem; border: none; cursor: pointer;
+  box-shadow: 0 2px 10px rgba(11, 94, 168, 0.25);
+  transition: background 0.15s;
+}
+.btn:hover { background: var(--accent-hover); }
+.btn-outline {
+  background: transparent; color: var(--text);
+  border: 1px solid var(--border-strong);
+  box-shadow: none;
+}
+.btn-outline:hover { border-color: var(--accent); color: var(--accent); }
+
+/* ---------- Hero ---------- */
+.hero {
+  position: relative;
+  min-height: 86vh;
+  display: flex; align-items: center;
+  background: linear-gradient(180deg, rgba(8,29,51,0.78) 0%, rgba(8,29,51,0.55) 45%, rgba(8,29,51,0.85) 100%),
+              url('assets/photos/hero-superyacht.jpg') center / cover no-repeat;
+  color: #fff;
+}
+.hero-inner { max-width: 1200px; margin: 0 auto; padding: 60px 32px; width: 100%; }
+.eyebrow {
+  display: inline-flex; align-items: center; gap: 8px;
+  color: #cfe6ff; font-size: 0.8rem; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase;
+  background: rgba(255,255,255,0.12); padding: 6px 14px; border-radius: 999px;
+  margin-bottom: 20px;
+}
+.hero h1 {
+  font-size: 3.2rem; line-height: 1.1; font-weight: 700; letter-spacing: -0.02em;
+  margin-bottom: 20px; max-width: 700px;
+}
+.hero h1 span { color: #6fc1ff; }
+.hero p { color: #dbe8f5; font-size: 1.1rem; max-width: 520px; margin-bottom: 32px; }
+.hero-actions { display: flex; gap: 14px; margin-bottom: 44px; }
+.hero-stats { display: flex; gap: 36px; }
+.hero-stats div { display: flex; flex-direction: column; }
+.hero-stats strong { font-size: 1.5rem; font-weight: 700; }
+.hero-stats span { color: #b9cfe4; font-size: 0.85rem; }
+
+/* ---------- Sections ---------- */
+section { padding: 70px 32px; }
+.section-inner { max-width: 1200px; margin: 0 auto; }
+.section-head { text-align: center; max-width: 640px; margin: 0 auto 48px; }
+.section-head .eyebrow { color: var(--accent); background: var(--accent-soft); margin-bottom: 14px; }
+.section-head h2 { font-size: 2.2rem; font-weight: 700; letter-spacing: -0.01em; margin-bottom: 12px; }
+.section-head p { color: var(--text-muted); font-size: 1.05rem; }
+
+/* Crew-in-action photo strip */
+.photo-strip {
+  display: grid; grid-template-columns: 1.3fr 1fr 1fr; gap: 20px;
+}
+.photo-strip figure {
+  position: relative; border-radius: 16px; overflow: hidden;
+  box-shadow: 0 0 2px rgba(10,40,70,0.12), 0 1px 2px rgba(10,40,70,0.14);
+  border: 1px solid var(--border);
+  aspect-ratio: 4/5;
+}
+.photo-strip img { width: 100%; height: 100%; object-fit: cover; }
+.photo-strip figcaption {
+  position: absolute; left: 0; right: 0; bottom: 0;
+  padding: 16px 18px;
+  background: linear-gradient(180deg, rgba(8,29,51,0) 0%, rgba(8,29,51,0.85) 100%);
+  color: #fff; font-size: 0.85rem; font-weight: 600;
+}
+.photo-strip .tall { grid-row: span 2; aspect-ratio: auto; }
+
+/* Collections grid */
+.grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 2px rgba(10,40,70,0.12), 0 1px 2px rgba(10,40,70,0.14);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover { transform: translateY(-4px); box-shadow: var(--shadow); }
+.card-media {
+  aspect-ratio: 16/11; background: var(--surface-soft);
+  display: flex; align-items: center; justify-content: center;
+  border-bottom: 1px solid var(--border);
+}
+.card-media img { width: 100%; height: 100%; object-fit: cover; }
+.card-body { padding: 22px; }
+.card-body .tag {
+  font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em;
+  color: var(--accent); margin-bottom: 8px; display: block;
+}
+.card-body h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 8px; }
+.card-body p { color: var(--text-muted); font-size: 0.92rem; margin-bottom: 16px; }
+.card-body .price-row { display: flex; align-items: center; justify-content: space-between; }
+.card-body .price { font-weight: 700; font-size: 1.05rem; }
+.card-body .link { color: var(--accent); font-weight: 600; font-size: 0.88rem; }
+
+/* Uniform gallery */
+.gallery-grid {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 18px;
+}
+.gallery-item {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 0 2px rgba(10,40,70,0.12), 0 1px 2px rgba(10,40,70,0.14);
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.gallery-item:hover { transform: translateY(-3px); box-shadow: var(--shadow); }
+.gallery-item .media {
+  aspect-ratio: 1/1; background: var(--surface-soft);
+  display: flex; align-items: center; justify-content: center; padding: 18px;
+}
+.gallery-item img { width: 100%; height: 100%; object-fit: contain; }
+.gallery-item .label {
+  padding: 12px 16px 16px; font-size: 0.85rem; font-weight: 600; text-align: center;
+  border-top: 1px solid var(--border);
+  color: var(--text);
+}
+
+/* Features */
+.grid-4 { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+.feature {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 26px 22px;
+}
+.feature-icon {
+  width: 44px; height: 44px; border-radius: 0.625rem;
+  background: var(--accent-soft); color: var(--accent);
+  display: flex; align-items: center; justify-content: center; margin-bottom: 16px;
+}
+.feature h3 { font-size: 1.02rem; font-weight: 700; margin-bottom: 6px; }
+.feature p { color: var(--text-muted); font-size: 0.88rem; }
+
+/* Band / CTA */
+.band {
+  background: var(--bg-elevated);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+/* Testimonials */
+.grid-3-quote { display: grid; grid-template-columns: repeat(3,1fr); gap: 24px; }
+.quote {
+  background: var(--surface); border: 1px solid var(--border); border-radius: 16px;
+  padding: 26px;
+}
+.quote p.text { font-size: 0.95rem; color: var(--text); margin-bottom: 18px; }
+.quote .who { display: flex; align-items: center; gap: 12px; }
+.avatar {
+  width: 38px; height: 38px; border-radius: 999px;
+  background: var(--accent); color: var(--accent-fg);
+  display: flex; align-items: center; justify-content: center; font-weight: 700; font-size: 0.85rem;
+}
+.who strong { font-size: 0.9rem; display: block; }
+.who span { font-size: 0.8rem; color: var(--text-soft); }
+
+/* CTA panel */
+.cta-panel {
+  max-width: 1200px; margin: 0 auto;
+  background: linear-gradient(135deg, var(--navy) 0%, var(--accent) 100%);
+  border-radius: 16px; padding: 56px 48px;
+  display: flex; align-items: center; justify-content: space-between; gap: 32px;
+  color: #fff;
+}
+.cta-panel h2 { font-size: 1.9rem; font-weight: 700; margin-bottom: 10px; }
+.cta-panel p { opacity: 0.9; max-width: 480px; }
+.cta-panel .btn { background: #fff; color: var(--accent); }
+.cta-panel .btn:hover { opacity: 0.9; }
+
+/* Footer */
+footer {
+  border-top: 1px solid var(--border);
+  padding: 48px 32px 28px;
+  background: var(--bg-elevated);
+}
+.footer-grid {
+  max-width: 1200px; margin: 0 auto 32px;
+  display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px;
+}
+.footer-grid h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; text-transform: uppercase; letter-spacing: 0.06em; color: var(--text-soft); }
+.footer-grid a { display: block; color: var(--text-muted); font-size: 0.9rem; margin-bottom: 10px; }
+.footer-grid a:hover { color: var(--accent); }
+.footer-bottom {
+  max-width: 1200px; margin: 0 auto;
+  border-top: 1px solid var(--border); padding-top: 22px;
+  display: flex; justify-content: space-between; color: var(--text-soft); font-size: 0.82rem;
+}
+
+@media (max-width: 920px) {
+  .hero h1 { font-size: 2.2rem; }
+  .nav-links { display: none; }
+  .photo-strip { grid-template-columns: 1fr 1fr; }
+  .photo-strip .tall { grid-row: auto; aspect-ratio: 4/5; }
+  .grid-3, .grid-4, .grid-3-quote, .gallery-grid { grid-template-columns: 1fr 1fr; }
+  .cta-panel { flex-direction: column; text-align: center; }
+  .footer-grid { grid-template-columns: 1fr 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <div class="brand">
+      <span class="brand-mark">M&amp;T</span>
+      Marine &amp; Thread Beldi Corp.
+    </div>
+    <nav class="nav-links">
+      <a href="#collections">Collections</a>
+      <a href="#gallery">Gallery</a>
+      <a href="#why">Why Us</a>
+      <a href="#testimonials">Reviews</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a href="#contact" class="btn">Request a Quote</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="hero-inner">
+    <span class="eyebrow">⚓ Est. for Superyacht Crews</span>
+    <h1>Uniforms made for <span>life on the water.</span></h1>
+    <p>Tailored crew uniforms, deck wear, and interior staff attire — engineered for performance at sea and polished enough for owner inspection.</p>
+    <div class="hero-actions">
+      <a href="#collections" class="btn">Shop Collections</a>
+      <a href="#contact" class="btn btn-outline" style="border-color:#fff; color:#fff;">Book a Fitting</a>
+    </div>
+    <div class="hero-stats">
+      <div><strong>120+</strong><span>Yachts outfitted</span></div>
+      <div><strong>4–6 wks</strong><span>Custom turnaround</span></div>
+      <div><strong>98%</strong><span>Client retention</span></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">On Deck</span>
+      <h2>Our crews, in uniform</h2>
+      <p>Real crews, real conditions — built to look sharp from the first charter to the last.</p>
+    </div>
+    <div class="photo-strip">
+      <figure class="tall">
+        <img src="assets/photos/crew-whites.jpg" alt="Yacht crew in matching white uniforms on deck">
+        <figcaption>Full crew whites — formal deck duty</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/photos/sailor-deck.jpg" alt="Crew member in white and navy uniform on a yacht">
+        <figcaption>Deck crew technical wear</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/photos/sailing-yacht.jpg" alt="Sailing yacht at sea">
+        <figcaption>Built for open water</figcaption>
+      </figure>
+      <figure>
+        <img src="assets/photos/motor-yacht.jpg" alt="Motor yacht cruising">
+        <figcaption>Every class of vessel</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="collections">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Collections</span>
+      <h2>Built for every role on deck</h2>
+      <p>Technical fabrics, breathable weaves, and salt-resistant finishes — designed for deckhands, stewardesses, officers, and engineers alike.</p>
+    </div>
+    <div class="grid-3">
+      <div class="card">
+        <div class="card-media"><img src="assets/photos/sailor-deck.jpg" alt="Deck crew uniform in action"></div>
+        <div class="card-body">
+          <span class="tag">Deck Crew</span>
+          <h3>Performance Deck Polo</h3>
+          <p>Quick-dry, UV-protective, built to handle sun, spray, and long watches.</p>
+          <div class="price-row"><span class="price">From $58</span><a href="#" class="link">View details →</a></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media"><img src="assets/photos/crew-toast.jpg" alt="Interior staff uniform in action"></div>
+        <div class="card-body">
+          <span class="tag">Interior Staff</span>
+          <h3>Stewardess Tailored Set</h3>
+          <p>Elegant, wrinkle-resistant tailoring for service and guest-facing roles.</p>
+          <div class="price-row"><span class="price">From $142</span><a href="#" class="link">View details →</a></div>
+        </div>
+      </div>
+      <div class="card">
+        <div class="card-media"><img src="assets/photos/crew-whites.jpg" alt="Bridge officer whites in action"></div>
+        <div class="card-body">
+          <span class="tag">Officers</span>
+          <h3>Bridge Officer Whites</h3>
+          <p>Classic epaulette-ready whites with reinforced seams for formal duty.</p>
+          <div class="price-row"><span class="price">From $189</span><a href="#" class="link">View details →</a></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="gallery">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Uniform Gallery</span>
+      <h2>Every piece, up close</h2>
+      <p>A closer look at our core uniform pieces — each available in custom fits and embroidery.</p>
+    </div>
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/deck-polo.png" alt="Deck polo uniform"></div>
+        <div class="label">Deck Polo</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/vneck-tee.png" alt="V-neck crew tee"></div>
+        <div class="label">V-Neck Crew Tee</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/officer-shirt.png" alt="Officer shirt"></div>
+        <div class="label">Officer Shirt</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/crew-pants.png" alt="Crew trousers"></div>
+        <div class="label">Crew Trousers</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/stewardess-dress.png" alt="Stewardess dress"></div>
+        <div class="label">Stewardess Dress</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/coverall.png" alt="Engineer coverall"></div>
+        <div class="label">Engineer Coverall</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/jumpsuit-back.png" alt="Deck jumpsuit"></div>
+        <div class="label">Deck Jumpsuit</div>
+      </div>
+      <div class="gallery-item">
+        <div class="media"><img src="assets/uniforms/captain-cap.png" alt="Captain cap"></div>
+        <div class="label">Captain's Cap</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="why">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Why Marine &amp; Thread Beldi Corp.</span>
+      <h2>Quality that survives the season</h2>
+    </div>
+    <div class="grid-4">
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M20 6L9 17l-5-5"/></svg>
+        </div>
+        <h3>Custom Embroidery</h3>
+        <p>Yacht name, crew rank, and flag embroidery included on every order.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M3 12h4l3 8 4-16 3 8h4"/></svg>
+        </div>
+        <h3>Salt &amp; UV Resistant</h3>
+        <p>Technical fabrics tested for sun exposure, chlorine, and saltwater.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 3"/></svg>
+        </div>
+        <h3>Fast Turnaround</h3>
+        <p>Full crew outfitting delivered in 4–6 weeks, rush options available.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 2l8 4v6c0 5-3.5 8.5-8 10-4.5-1.5-8-5-8-10V6z"/></svg>
+        </div>
+        <h3>Fit Guarantee</h3>
+        <p>Free resizing within 30 days — we fit every crew member right.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="band" id="testimonials">
+  <div class="section-inner">
+    <div class="section-head">
+      <span class="eyebrow">Trusted by crews</span>
+      <h2>What our clients say</h2>
+    </div>
+    <div class="grid-3-quote">
+      <div class="quote">
+        <p class="text">"Marine &amp; Thread Beldi Corp. outfitted our entire 14-person crew in under a month — flawless fit and the embroidery is top notch."</p>
+        <div class="who"><div class="avatar">JR</div><div><strong>Capt. J. Reyes</strong><span>M/Y Solstice</span></div></div>
+      </div>
+      <div class="quote">
+        <p class="text">"Finally a uniform brand that understands yacht life. The deck polos survive an entire charter season."</p>
+        <div class="who"><div class="avatar">AM</div><div><strong>A. Moreau</strong><span>Chief Stewardess</span></div></div>
+      </div>
+      <div class="quote">
+        <p class="text">"Professional, responsive, and the quality shows the moment guests step aboard."</p>
+        <div class="who"><div class="avatar">DK</div><div><strong>D. Kessler</strong><span>Yacht Management Co.</span></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="cta-panel">
+    <div>
+      <h2>Ready to outfit your crew?</h2>
+      <p>Tell us your yacht size and crew count — we'll put together a custom uniform proposal within 48 hours.</p>
+    </div>
+    <a href="mailto:hello@marineandthread.com" class="btn">Request a Quote</a>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="brand" style="margin-bottom:12px;">
+        <span class="brand-mark">M&amp;T</span>
+        Marine &amp; Thread Beldi Corp.
+      </div>
+      <p style="color:var(--text-muted); font-size:0.9rem; max-width:280px;">Premium crew uniforms for superyachts, built to perform at sea and impress at the dock.</p>
+    </div>
+    <div>
+      <h4>Shop</h4>
+      <a href="#">Deck Crew</a>
+      <a href="#">Interior Staff</a>
+      <a href="#">Officers</a>
+      <a href="#">Accessories</a>
+    </div>
+    <div>
+      <h4>Company</h4>
+      <a href="#">About Us</a>
+      <a href="#">Our Process</a>
+      <a href="#">Fabric Guide</a>
+    </div>
+    <div>
+      <h4>Contact</h4>
+      <a href="mailto:hello@marineandthread.com">hello@marineandthread.com</a>
+      <a href="#">+971 4 000 0000</a>
+      <a href="#">Dubai Marina, UAE</a>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2026 Marine &amp; Thread Beldi Corp. All rights reserved.</span>
+    <span>Crafted for life at sea.</span>
+  </div>
+</footer>
+
+</body>
+</html>
